@@ -181,7 +181,7 @@ def add_character(cha,typ="img",res=Image.ANTIALIAS):#add a character into the g
     if typ=="img":
         mchr=[]
         try:
-            img = Image.open(scn)
+            img = Image.open(cha)
         except FileNotFoundError:
             exit('Image not found.')
         h = height
@@ -315,19 +315,6 @@ def show_splash(scn,dly=1,res=Image.ANTIALIAS):#show the splash screen
         print(tim)
     wait(dly)
     os.system("cls")
-
-#def overlay(lst):#HAS BUGS DO NOT USE
-#    for i in range(height-1,height+len(lst)-1):
-#   current_frame[i] = lst[i]
-#   for i in currentframe:
-#      print(i)
-
-#def dialogue(txt='sample text'):#HAS BUGS DO NOT USE
-#    dlg = styles[0] + styles[1]*(width-4) + styles[3] + "\n"
-#    for i in txt.split("\n"):
-#        dlg += styles[8] + i + " "*(width - 4 - len(i)) + styles[11] + "\n"
-#    dlg += styles[12] + styles[13]*(width-4) + styles[15]
-#    overlay(dlg.split("\n"))
 
 def gty(wt,cj):
     while location[1] <= width - len(sprites[cursp]) and cj:

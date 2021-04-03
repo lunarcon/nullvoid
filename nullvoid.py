@@ -6,8 +6,6 @@ import winsound
 import scoreman as scmn
 import time
 
-#made by Abhay T, Aditya V, and Indrajith G.
-
 didplayerwin=False
 path,wall,unvisited='  ','██','x'
 height,width=49,66
@@ -18,6 +16,7 @@ player_name=''
 tst=True
 kp.initialize(134,51)
 def reiterateMaze(maze):
+	#this function is used to convert the output of the RP algorithm into a kittypy readable format
 	for i in range(0, height):
 		playarea.append('')
 		for j in range(0, width):
@@ -33,11 +32,13 @@ def sCells(rand_wall):
 	if (maze[rand_wall[0]][rand_wall[1]+1] == '  '):
 		s_paths += 1
 	return s_paths
+#the following construct initializes the maze with given h,w
 for i in range(0, height):
 	line = []
 	for j in range(0, width):
 		line.append(unvisited)
 	maze.append(line)
+#the following constructs implements a starting position for the algorithm, and then checks to ensure it isnt on the border
 starting_height = int(random.random()*height)
 starting_width = int(random.random()*width)
 if (starting_height == 0):
@@ -48,6 +49,7 @@ if (starting_width == 0):
 	starting_width += 1
 if (starting_width == width-1):
 	starting_width -= 1
+#sets the current position of algorithm to a path block, and starts creating walls
 maze[starting_height][starting_width] = path
 walls = []
 walls.append([starting_height - 1, starting_width])
@@ -186,7 +188,7 @@ def game_story():
 		kp.print_center(kp.Fore.YELLOW + i+ kp.Style.RESET_ALL ,134)
 		waiter=input()
 
-name_enter_str=str('\n'*20 + ' '*55 + "ENTER YOUR NAME, MORTAL\n\n" + ' '*55)
+name_enter_str=str('\n'*20 + ' '*55 + "ENTER YOUR NAME, TRESPASSER\n\n" + ' '*55)
 
 kp.show_splash("assets\\splash.png",0.5,kp.Image.BOX)
 os.system('cls')
